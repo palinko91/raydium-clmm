@@ -30,7 +30,7 @@ use std::rc::Rc;
 use std::str::FromStr;
 use std::{collections::VecDeque, convert::identity, mem::size_of};
 
-mod instructions;
+pub mod instructions;
 use instructions::amm_instructions::*;
 use instructions::events_instructions_parse::*;
 use instructions::rpc::*;
@@ -51,19 +51,19 @@ use spl_token_client::token::ExtensionInitializationParams;
 use crate::instructions::utils;
 #[derive(Clone, Debug, PartialEq)]
 pub struct ClientConfig {
-    http_url: String,
-    ws_url: String,
-    payer_path: String,
-    admin_path: String,
-    raydium_v3_program: Pubkey,
-    slippage: f64,
-    amm_config_key: Pubkey,
-
-    mint0: Option<Pubkey>,
-    mint1: Option<Pubkey>,
-    pool_id_account: Option<Pubkey>,
-    tickarray_bitmap_extension: Option<Pubkey>,
-    amm_config_index: u16,
+    pub http_url: String,
+    pub ws_url: String,
+    pub payer_path: String,
+    pub admin_path: String,
+    pub raydium_v3_program: Pubkey,
+    pub slippage: f64,
+    pub amm_config_key: Pubkey,
+ 
+    pub mint0: Option<Pubkey>,
+    pub mint1: Option<Pubkey>,
+    pub pool_id_account: Option<Pubkey>,
+    pub tickarray_bitmap_extension: Option<Pubkey>,
+    pub amm_config_index: u16,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default)]
